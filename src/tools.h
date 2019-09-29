@@ -27,6 +27,11 @@ class Tools {
    */
   Eigen::MatrixXd CalculateJacobian(const Eigen::VectorXd& x_state);
 
+  /**
+   * Convert from Cartesian to Polar coordinates.
+   */
+  VectorXd ConvertFromCartesianToPolarCoords(const VectorXd &v_cart);
+
 };
 
 #endif  // TOOLS_H_
