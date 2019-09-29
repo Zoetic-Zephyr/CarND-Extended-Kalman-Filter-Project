@@ -95,7 +95,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
       px = meas_rho * cos(meas_phi);
       py = meas_rho * sin(meas_phi);
 
-      // ! Although radar gives velocity data in the form of the range rate dot-ρ , a radar measurement does not contain enough information to determine the state variable velocities vx and vy. Therefore, vx and vy are set to be 0.
+      // ! Although radar gives velocity data in the form of the range rate rho_dot, a radar measurement does not contain enough information to determine the state variable velocities vx and vy. Therefore, vx and vy are set to be 0.
       x << px, py, 0.0, 0.0;
     }
     else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) {
