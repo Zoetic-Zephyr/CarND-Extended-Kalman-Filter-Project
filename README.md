@@ -45,6 +45,18 @@ Here is the main protocol that main.cpp uses for uWebSocketIO in communicating w
 
 ---
 
+## Demo
+
+Dataset 1:
+
+![](readme_images/demo1.gif)
+
+Dataset 2:
+
+![](readme_images/demo2.gif)
+
+---
+
 ## Other Important Dependencies
 
 * cmake >= 3.5
