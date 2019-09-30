@@ -36,7 +36,7 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
   }
   
   // * 3. Calculate mean
-  rmse = rmse/rmse.size();
+  rmse = rmse/estimations.size();
 
   // * 4. Calculate squared root
   rmse = rmse.array().sqrt();
@@ -51,15 +51,15 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
   MatrixXd Hj(3,4);
 
   // * 1. Recover state parameters
-  float px = x_state(0);
-  float py = x_state(1);
-  float vx = x_state(2);
-  float vy = x_state(3);
+  double px = x_state(0);
+  double py = x_state(1);
+  double vx = x_state(2);
+  double vy = x_state(3);
 
   // * pre-calc values to save computation for later
-  float q_sum = px*px + py*py; // * quadratic sum of px, py
-  float g_mean = sqrt(q_sum); // * geometric mean of px, py
-  float p = q_sum * g_mean; // * pow(q_sum, 3/2)
+  double q_sum = px*px + py*py; // * quadratic sum of px, py
+  double g_mean = sqrt(q_sum); // * geometric mean of px, py
+  double p = q_sum * g_mean; // * pow(q_sum, 3/2)
 
   if (fabs(q_sum) < 0.0001) {
     // * check division by zero
