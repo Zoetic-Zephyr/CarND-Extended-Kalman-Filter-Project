@@ -30,7 +30,7 @@ class Tools {
   /**
    * Convert from Cartesian to Polar coordinates.
    */
-  VectorXd ConvertFromCartesianToPolarCoords(const VectorXd &v_cart);
+  Eigen::VectorXd ConvertFromCartesianToPolarCoords(const Eigen::VectorXd &v_cart);
 
 };
 
