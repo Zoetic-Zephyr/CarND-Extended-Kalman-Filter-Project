@@ -34,8 +34,8 @@ FusionEKF::FusionEKF() {
   
   // TODO: Finish initializing the FusionEKF.
   // measurement matrix - laser
-  H_laser_ << 1, 0, 0, 0,
-              0, 1, 0, 0;
+  H_laser_ << 1.0, 0.0, 0.0, 0.0,
+              0.0, 1.0, 0.0, 0.0;
 
 
   // TODO: Set the process and measurement noises
@@ -149,7 +149,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   // Use noise_ax = 9 and noise_ay = 9 for your Q matrix.
   // * 3. Set the process covariance matrix Q
   // * define dt_x to be used multiple times below 
-  double dt_2 = dt * dt;
+  double dt_2 = dt   * dt;
   double dt_3 = dt_2 * dt;
   double dt_4 = dt_3 * dt;
 
@@ -165,12 +165,10 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   double q42 = dt_3/2*noise_ay_;
   double q44 = dt_2*noise_ay_;
 
-  // ! possible bug below line
-  // ekf_.Q_ = MatrixXd(4, 4);
-  ekf_.Q_ << q11, 0, q13, 0,
-            0, q22, 0, q24,
-            q31, 0, q33, 0,
-            0, q42, 0, q44;
+  ekf_.Q_ << q11, 0.0, q13, 0.0,
+             0.0, q22, 0.0, q24,
+             q31, 0.0, q33, 0.0,
+             0.0, q42, 0.0, q44;
 
   ekf_.Predict();
 
